@@ -1,0 +1,81 @@
+body{
+	color-scheme: dark;
+	background: black;
+	color: white;
+	font-family: system-ui;
+}
+.heading h1{
+	font-weight: 100;
+	margin: 0;
+}
+.heading p{
+	margin: 0;
+	font-weight: 100;
+	color: lightgray;
+}
+.heading{
+	margin-bottom: 2em;
+	width: 30%;
+}
+.buttons{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: .5em;
+	--x: 200%; /* this is the default it gets overwritten when you move your mouse but as it is 200% it means the borders are offscreen until you move your mouse */
+	--y: 200%;
+}
+.buttons button{
+	border-radius: 0;
+	text-align: left;
+	background-color: transparent;
+	padding: 0;
+	border: none;
+	overflow: hidden;
+	position: relative;
+	display: block;
+	padding-bottom: 2px;
+}
+.buttons button::before{
+	content: "";
+	display: block;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	background: radial-gradient(circle at center, #ffffffc0 0, transparent 75%);
+	transform: translate(-50%, -50% );
+	top: var(--y);
+	left: var(--x);
+}
+.buttons .inner{
+	padding: 1em;
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+	background-color: black;
+	margin: 1px;
+	z-index: 1;
+}
+.buttons h2{
+	font-weight: 100;
+	font-size: 1rem;
+	margin: 0;
+}
+.buttons p{
+	font-size: .75rem;
+	margin: 0;
+	color: lightgray;
+}
+.buttons button svg{
+	height: 5em;
+}
+.buttons button:hover .inner::before{
+	content: "";
+	display: block;
+	width: 200%;
+	aspect-ratio: 1;
+	position: absolute;
+	background: radial-gradient(circle at center, #ffffff40 0, #ffffff20 25%, #ffffff00 100%);
+	transform: translate(-50%, -50% );
+	top: var(--y);
+	left: var(--x);
+}
